@@ -1,6 +1,3 @@
-
----
-
 ### `README.md` – **CSV/SQL Merger**
 
 ```markdown
