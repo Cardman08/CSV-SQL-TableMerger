@@ -1,13 +1,11 @@
-### `README.md` – **CSV/SQL Merger**
-
-```markdown
 # CSV/SQL Merger for Data Preprocessing
 
 This Shiny application allows users to merge two tabular data sources—such as CSV or TXT files, optionally with SQL dump support—into a single, harmonized data frame. It is designed for pre-processing fragmented lab data before importing into systems like [eLabFTW](https://www.elabftw.net/).
 
 ## Screenshot
 
-![Placeholder for screenshot](screenshot_sql_merger.png)
+![screenshot_sql_merger](https://github.com/user-attachments/assets/97f57dc7-94c0-4208-807d-f0a4b6302f0f)
+
 
 ## Features
 
