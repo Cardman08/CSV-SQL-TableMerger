@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV/SQL Merger - Dokumentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1, h2, h3 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+        code { font-weight: bold; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>CSV/SQL Merger - Dokumentation</h1>
+    <h2>Überblick</h2>
+    <p>Diese Shiny-App ermöglicht das <strong>Hochladen, Verknüpfen und Speichern</strong> von CSV- oder TXT-Dateien mit zugehörigen SQL-Dump-Dateien. Sie wurde entwickelt, um <strong>alte JAM-Py-Datenbankexporte</strong> zu verarbeiten und daraus verknüpfte Tabellen zu erstellen, die als Importdateien für <strong>eLabFTW-Ressourcen</strong> genutzt werden können.</p>
+    
+    <h2>Funktionen</h2>
+    <ul>
+        <li><strong>Import von CSV- oder TXT-Dateien</strong></li>
+        <li><strong>Optionaler Import von SQL-Dump-Dateien</strong>, um Spaltennamen zu extrahieren</li>
+        <li><strong>ID-basierte Verknüpfung</strong> von Tabellen</li>
+        <li><strong>Unterstützung verschiedener Join-Typen</strong> (Inner, Outer, Left, Right)</li>
+        <li><strong>Interaktive Vorschau der Daten</strong></li>
+        <li><strong>Export der verknüpften Tabelle als CSV</strong> mit wählbarem Dateinamen</li>
+    </ul>
+
+    <h2>Nutzungsszenario</h2>
+    <ol>
+        <li><strong>Export aus JAM-Py</strong>: Besteht aus TXT-Dateien mit Rohdaten und einer SQL-Dump-Datei mit Tabellenstrukturen.</li>
+        <li><strong>Datenverknüpfung in Shiny</strong>: Die Shiny-App liest die Dateien ein, verknüpft Tabellen über gemeinsame IDs und erstellt eine bereinigte Datentabelle.</li>
+        <li><strong>Weiterverarbeitung für eLabFTW</strong>: Die resultierende Datei kann mit einer weiteren Shiny-App in das eLabFTW-Format überführt werden.</li>
+    </ol>
+
+    <h2>Installation & Nutzung</h2>
+    <h3>Voraussetzungen</h3>
+    <p>R (>= 4.0) und folgende R-Pakete müssen installiert sein:</p>
+    <pre><code>install.packages(c("shiny", "readr", "writexl", "stringr", "DT", "shinyjs"))</code></pre>
+    
+    <h3>Start der Anwendung</h3>
+    <ol>
+        <li>Repository clonen oder Dateien herunterladen</li>
+        <li>R oder RStudio öffnen</li>
+        <li>Mit folgendem Befehl die App starten:</li>
+    </ol>
+    <pre><code>runApp("Pfad/zur/ShinyApp")</code></pre>
+    
+    <h3>Bedienung der App</h3>
+    <ol>
+        <li><strong>Dateien hochladen</strong>: Wähle zwei CSV/TXT-Dateien aus. Falls die Spaltennamen nicht enthalten sind, kann eine zugehörige SQL-Datei hochgeladen werden.</li>
+        <li><strong>IDs für den Merge auswählen</strong>: Wähle die Spalten, über die die Tabellen verknüpft werden sollen.</li>
+        <li><strong>Join-Typ wählen</strong>: Entscheide, ob ein Inner-, Outer-, Left- oder Right-Join verwendet werden soll.</li>
+        <li><strong>Merge starten</strong>: Die Tabellen werden verknüpft und als interaktive Tabelle dargestellt.</li>
+        <li><strong>Ergebnis speichern</strong>: Die zusammengeführte Tabelle kann mit einem individuell wählbaren Namen als CSV gespeichert werden.</li>
+    </ol>
+    
+    <h2>Technische Details</h2>
+    <ul>
+        <li><strong>SQL-Dump-Datei-Handling</strong>: Die App extrahiert Spaltennamen aus <code>CREATE TABLE</code>-Statements der SQL-Datei.</li>
+        <li><strong>Dynamische Join-Verarbeitung</strong>: Merge-Operationen werden über <code>switch()</code> dynamisch gesteuert.</li>
+        <li><strong>Interaktive Tabellenanzeige</strong>: <code>DT</code> sorgt für eine scrollbare, durchsuchbare Darstellung der Daten.</li>
+        <li><strong>Benutzerfreundliche UI</strong>: <code>shinyjs</code> ermöglicht das Deaktivieren und Aktivieren von UI-Elementen basierend auf Benutzerauswahl.</li>
+    </ul>
+    
+    <h2>Kontakt</h2>
+    <p>Für Fragen oder Verbesserungsvorschläge:</p>
+    <p><strong>Christian Jaeger</strong><br>
+       E-Mail: <a href="mailto:christian.jaeger@uk-halle.de">christian.jaeger@uk-halle.de</a></p>
+    
+    <hr>
+    <p><em>Letzte Aktualisierung: 12. März 2025</em></p>
+</body>
+</html>
